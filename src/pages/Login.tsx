@@ -7,12 +7,12 @@ import {
   FormLabel,
   Heading,
   Input,
-  Link,
   Stack, 
   Center 
 } from "@chakra-ui/react";
 import login_bg from "../assets/img/login.jpg";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -36,7 +36,7 @@ export default function Login() {
               </FormControl>
               <FormControl>
                 <FormHelperText textAlign="center">
-                    <Link>¿No tiene cuenta? Registrese aquí</Link>
+                    <Link to="/signup">¿No tiene cuenta? Registrese aquí</Link>
                 </FormHelperText>
               </FormControl>
               <Button width="full">Ingresar</Button>
