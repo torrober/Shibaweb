@@ -12,7 +12,7 @@ import {
   } from "@chakra-ui/react";
   import login_bg from "../assets/img/login.jpg";
   import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import API from "../api/API";
 import User from "../objects/User";
   
@@ -24,6 +24,7 @@ import User from "../objects/User";
   const [secondName, setSecondName] = useState('');
   const [id,setID] = useState('');
   const [bday,setBday] = useState('');
+  const history = useNavigate();
   const handleForm = () => {
     if(user == '' || password == '' || firstName == '' || secondName == '' || id == '' || bday == '') {
       alert('Revise el formulario, faltan datos');
@@ -34,7 +35,8 @@ import User from "../objects/User";
         if(data.response == "failed") {
           alert("Ha ocurrido un error al registrarse, puede que ya tenga usuario en la plataforma.");
         } else {
-          alert("Bienvenido a shibavet!");
+          alert("Bienvenido a shibavet, ahora puede registrarse");
+          history('/login');
         }
       });
     }

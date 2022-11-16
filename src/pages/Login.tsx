@@ -11,14 +11,19 @@ import {
   Center 
 } from "@chakra-ui/react";
 import login_bg from "../assets/img/login.jpg";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import API from "../api/API";
+import { UserContext } from "../context/UserContext";
+import { useNavigate } from 'react-router-dom';
+import { userContext } from "../userContext";
 
 export default function Login() {
   //getters and setters 
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
+  const userActive = useContext(UserContext)
+  const history = useNavigate();
   const handleForm = () => {
     if(user == '' || password == '') {
       alert('Revise el formulario, faltan datos');
@@ -29,7 +34,8 @@ export default function Login() {
           alert("Ha ocurrido un error al iniciar sesión. Por favor revise su contraseña o usuario");
         } else {
           alert("Bienvenido a shibavet!");
-          console.log(data.content);
+          userActive?.setUserActive(data.content)
+          history('/main');
         }
       });
     }
