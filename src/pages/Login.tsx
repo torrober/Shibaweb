@@ -35,6 +35,7 @@ export default function Login() {
         } else {
           alert("Bienvenido a shibavet!");
           userActive?.setUserActive(data.content)
+          localStorage.setItem('user', JSON.stringify(data.content))
           history('/main');
         }
       });

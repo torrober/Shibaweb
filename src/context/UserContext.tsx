@@ -18,6 +18,12 @@ type UserContextType = {
 export const UserContext = createContext<UserContextType | null>(null)
 export const UserProvider  = (({children}: UserProviderProps)=>{
     const [userActive, setUserActive] = useState<UserType | null>(null)
+    if(userActive == null) {
+        //check if user is stored in localStorage
+        if(localStorage.getItem('user')) {
+            setUserActive(JSON.parse(localStorage.getItem('user')!))
+        } 
+    }
     return (
         <UserContext.Provider value={{ userActive, setUserActive }}>
             {children}

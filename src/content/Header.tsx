@@ -7,6 +7,7 @@ export default function Header() {
   const history = useNavigate();
   const logout = () => {
     userActive?.setUserActive(null);
+    localStorage.removeItem('user');
     history("/login");
   };
   return (
