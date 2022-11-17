@@ -16,7 +16,7 @@ export default function Header() {
        Shibavet
       </Heading>
       <HStack>
-        <Button onClick={logout}>Cerrar Sesión</Button>
+        <Button onClick={logout} colorScheme='blackAlpha'>Cerrar Sesión</Button>
       </HStack>
     </Flex>
   );
