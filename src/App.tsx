@@ -5,6 +5,11 @@ import Signup from "./pages/Signup";
 import Main from "./pages/Main";
 import { UserContext, UserProvider } from "./context/UserContext";
 import { ProtectedRoute } from "./ProtectedRoute";
+import { ProtectedVetRoute } from "./ProtectedVetRoute";
+import MainVet from "./pages/MainVet";
+import { DefaultRoute } from "./DefaultRoute";
+import MainAdmin from "./pages/MainAdmin";
+import { ProtectedAdminRoute } from "./ProtectedAdminRoute";
 function App() {
   const userActive = useContext(UserContext);
   return (
@@ -12,7 +17,7 @@ function App() {
       <UserProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<DefaultRoute />} />
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="*" element={<Navigate to="/" />} />
@@ -20,8 +25,24 @@ function App() {
               path="/main"
               element={
                 <ProtectedRoute>
-                 <Main />
+                  <Main />
                 </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/mainVet"
+              element={
+                <ProtectedVetRoute>
+                  <MainVet />
+                </ProtectedVetRoute>
+              }
+            ></Route>
+            <Route
+              path="/mainAdmin"
+              element={
+                <ProtectedAdminRoute>
+                  <MainAdmin />
+                </ProtectedAdminRoute>
               }
             ></Route>
           </Routes>

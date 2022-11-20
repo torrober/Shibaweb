@@ -11,19 +11,21 @@ import {
   Center 
 } from "@chakra-ui/react";
 import login_bg from "../assets/img/login.jpg";
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, Navigate, unstable_HistoryRouter } from "react-router-dom";
 import API from "../api/API";
 import { UserContext } from "../context/UserContext";
 import { useNavigate } from 'react-router-dom';
 import { userContext } from "../userContext";
 
 export default function Login() {
+  //check if user is logged in
   //getters and setters 
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const userActive = useContext(UserContext)
   const history = useNavigate();
+  //form handler
   const handleForm = () => {
     if(user == '' || password == '') {
       alert('Revise el formulario, faltan datos');
@@ -35,12 +37,28 @@ export default function Login() {
         } else {
           alert("Bienvenido a shibavet!");
           userActive?.setUserActive(data.content)
+          console.log(data.content)
           localStorage.setItem('user', JSON.stringify(data.content))
-          history('/main');
+          switch(data.content.userType) {
+             case "1":
+              history('/main')
+              break;
+            case "2":
+              history('/mainVet')
+              break;
+            case "3":
+              history('/mainAdmin')
+              break
+          }
         }
       });
     }
   }
+  useEffect(() => {
+    if(userActive?.userActive) {
+      history('/');
+    }
+  });
   return (
       <Center
         bgImage={login_bg}

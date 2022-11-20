@@ -11,10 +11,11 @@ import {
     Center 
   } from "@chakra-ui/react";
   import login_bg from "../assets/img/login.jpg";
-  import React, { useState } from "react";
+  import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../api/API";
 import User from "../objects/User";
+import { UserContext } from "../context/UserContext";
   
   export default function Signup() {
   //getters and setters 
@@ -22,6 +23,7 @@ import User from "../objects/User";
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [secondName, setSecondName] = useState('');
+  const userActive = useContext(UserContext)
   const [id,setID] = useState('');
   const [bday,setBday] = useState('');
   const history = useNavigate();
@@ -41,6 +43,11 @@ import User from "../objects/User";
       });
     }
   }
+  useEffect(() => {
+    if(userActive?.userActive) {
+      history('/');
+    }
+  });
     return (
         <Center
           bgImage={login_bg}

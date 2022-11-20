@@ -8,7 +8,6 @@ export default function MyPets(props: any) {
     api.getPetsByOwner(props.ownerID).then((data) => {
       if (data.response == "failed") {
       } else {
-        console.log(data.content);
         setPets(data.content);
       }
     });

@@ -8,17 +8,20 @@ import {
   Heading,
   HStack,
   Spacer,
+  Square,
   Stack,
+  Text,
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import login_bg from "../assets/img/login.jpg";
 import Header from "../content/Header";
-import GradientButton from "../components/GradientButton";
 import { Gradients } from "../components/Gradients";
 import MyPets from "../content/MyPets";
-
+import shiba_icon from "../assets/img/icons8-shiba-inu-96.png";
+import services_icon from "../assets/img/outline_medical_services_black_48dp.png";
+import account_icon from "../assets/img/outline_manage_accounts_white_48dp.png";
 export default function Main() {
   const userActive = useContext(UserContext);
   const history = useNavigate();
@@ -26,6 +29,9 @@ export default function Main() {
     userActive?.setUserActive(null);
     history("/login");
   };
+  const gradient1 = `linear(to-b, ${Gradients.blue.startColor}, ${Gradients.blue.endColor})`;
+  const gradient2 = `linear(to-b, ${Gradients.orange.startColor}, ${Gradients.orange.endColor})`;
+  const gradient3 = `linear(to-b, ${Gradients.rose.startColor}, ${Gradients.rose.endColor})`;
   return (
     <>
       <Header></Header>
@@ -39,37 +45,62 @@ export default function Main() {
       >
         <Box>
           <Heading color="white">
-            ¡Hola, {userActive?.userActive?.firstName}!
+            ¡Bienvenido, {userActive?.userActive?.firstName}!
           </Heading>
         </Box>
       </Center>
       <Center>
-        <Stack direction="row" spacing={4}>
-          <Stack spacing="20px" m="6" direction="row">
-            <GradientButton
-              text="Prueba"
-              startColor={Gradients.blue.startColor}
-              endColor={Gradients.blue.endColor}
-            ></GradientButton>
-            <Spacer />
-            <GradientButton
-              text="Prueba"
-              startColor={Gradients.orange.startColor}
-              endColor={Gradients.orange.endColor}
-            ></GradientButton>
-            <Spacer />
-            <GradientButton
-              text="Prueba"
-              startColor={Gradients.rose.startColor}
-              endColor={Gradients.rose.endColor}
-            ></GradientButton>
-          </Stack>
-          <HStack w="100%">
-            <Box>
-              <Heading as="h4" m='6'>Mis mascotas</Heading>
-              <MyPets ownerID={userActive?.userActive?.id}></MyPets>
-            </Box>
-          </HStack>
+        <Stack spacing="20px" m="6" direction="row">
+          <Square
+            size="200px"
+            borderRadius="md"
+            boxShadow="lg"
+            bgGradient={gradient1}
+            cursor="pointer"
+          >
+            <Stack w="100%" align="center">
+              <Text align="center">
+                <img src={shiba_icon}></img>
+              </Text>
+              <Text fontSize="2xl" color="white" align="center">
+                Mis mascotas
+              </Text>
+            </Stack>
+          </Square>
+          <Spacer />
+          <Square
+            size="200px"
+            borderRadius="md"
+            boxShadow="lg"
+            bgGradient={gradient2}
+            cursor="pointer"
+          >
+            <Stack w="100%" align="center">
+              <Text align="center">
+                <img src={services_icon}></img>
+              </Text>
+              <Text fontSize="2xl" color="white" align="center">
+                Mis servicios
+              </Text>
+            </Stack>
+          </Square>
+          <Spacer />
+          <Square
+            size="200px"
+            borderRadius="md"
+            boxShadow="lg"
+            bgGradient={gradient3}
+            cursor="pointer"
+          >
+            <Stack w="100%" align="center">
+              <Text align="center">
+                <img src={account_icon}></img>
+              </Text>
+              <Text fontSize="2xl" color="white" align="center">
+                Mis datos
+              </Text>
+            </Stack>
+          </Square>
         </Stack>
       </Center>
     </>
