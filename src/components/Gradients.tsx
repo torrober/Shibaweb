@@ -10,5 +10,9 @@ export const Gradients = {
     "rose": {
         startColor: "#ff6966",
         endColor: "#ff4fcb"
+    },
+    "green" : {
+        startColor: "#00ff72",
+        endColor: "#00c783"
     }
 }
