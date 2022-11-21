@@ -19,7 +19,7 @@ import {
   import Header from "../content/Header";
   import { Gradients } from "../components/Gradients";
   import MyPets from "../content/MyPets";
-  import shiba_icon from "../assets/img/icons8-shiba-inu-96.png";
+  import store_icon from "../assets/img/outline_store_white_48dp.png";
   import services_icon from "../assets/img/outline_medical_services_black_48dp.png";
   import account_icon from "../assets/img/outline_manage_accounts_white_48dp.png";
   export default function MainAdmin() {
@@ -29,7 +29,7 @@ import {
       userActive?.setUserActive(null);
       history("/login");
     };
-    const gradient1 = `linear(to-b, ${Gradients.blue.startColor}, ${Gradients.blue.endColor})`;
+    const gradient1 = `linear(to-b, ${Gradients.green.startColor}, ${Gradients.green.endColor})`;
     const gradient2 = `linear(to-b, ${Gradients.orange.startColor}, ${Gradients.orange.endColor})`;
     const gradient3 = `linear(to-b, ${Gradients.rose.startColor}, ${Gradients.rose.endColor})`;
     return (
@@ -60,10 +60,10 @@ import {
             >
               <Stack w="100%" align="center">
                 <Text align="center">
-                  <img src={shiba_icon}></img>
+                  <img src={store_icon}></img>
                 </Text>
                 <Text fontSize="2xl" color="white" align="center">
-                  Mis pacientes
+                  Caja y <br></br> facturación
                 </Text>
               </Stack>
             </Square>
@@ -80,7 +80,7 @@ import {
                   <img src={services_icon}></img>
                 </Text>
                 <Text fontSize="2xl" color="white" align="center">
-                  Mi horario
+                  Edición y creación de servicios
                 </Text>
               </Stack>
             </Square>
