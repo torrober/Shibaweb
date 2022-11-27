@@ -15,6 +15,7 @@ import AddPet from "./pages/user/addPet";
 import EditPet from "./pages/user/EditPet";
 import MyData from "./pages/MyData";
 import ChangePassword from "./pages/ChangePassword";
+import BookService from "./pages/user/BookService";
 function App() {
   const userActive = useContext(UserContext);
   return (
@@ -71,6 +72,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <EditPet />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/user/bookservice"
+              element={
+                <ProtectedRoute>
+                  <BookService />
                 </ProtectedRoute>
               }
             ></Route>

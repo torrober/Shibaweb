@@ -70,6 +70,7 @@ export default function Main() {
             </Square>
           </Link>
           <Spacer />
+          <Link to="/user/bookservice">
           <Square
             size="200px"
             borderRadius="md"
@@ -86,6 +87,7 @@ export default function Main() {
               </Text>
             </Stack>
           </Square>
+          </Link>
           <Spacer />
           <Link to="/MyData">
             <Square
