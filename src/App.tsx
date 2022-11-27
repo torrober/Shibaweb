@@ -13,6 +13,8 @@ import { ProtectedAdminRoute } from "./ProtectedAdminRoute";
 import Pets from "./pages/user/Pet";
 import AddPet from "./pages/user/addPet";
 import EditPet from "./pages/user/EditPet";
+import MyData from "./pages/MyData";
+import ChangePassword from "./pages/ChangePassword";
 function App() {
   const userActive = useContext(UserContext);
   return (
@@ -29,6 +31,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Main />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/MyData"
+              element={
+                <ProtectedRoute>
+                  <MyData />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/ChangePassword"
+              element={
+                <ProtectedRoute>
+                  <ChangePassword />
                 </ProtectedRoute>
               }
             ></Route>

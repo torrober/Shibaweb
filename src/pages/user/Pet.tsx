@@ -24,6 +24,7 @@ export default function Pets() {
           </Heading>
         </Box>
       </Center>
+      
       <MyPets ownerID={userActive?.userActive?.id}></MyPets>
     </>
   );

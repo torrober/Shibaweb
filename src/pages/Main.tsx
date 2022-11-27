@@ -87,22 +87,24 @@ export default function Main() {
             </Stack>
           </Square>
           <Spacer />
-          <Square
-            size="200px"
-            borderRadius="md"
-            boxShadow="lg"
-            bgGradient={gradient3}
-            cursor="pointer"
-          >
-            <Stack w="100%" align="center">
-              <Text align="center">
-                <img src={account_icon}></img>
-              </Text>
-              <Text fontSize="2xl" color="white" align="center">
-                Mis datos
-              </Text>
-            </Stack>
-          </Square>
+          <Link to="/MyData">
+            <Square
+              size="200px"
+              borderRadius="md"
+              boxShadow="lg"
+              bgGradient={gradient3}
+              cursor="pointer"
+            >
+              <Stack w="100%" align="center">
+                <Text align="center">
+                  <img src={account_icon}></img>
+                </Text>
+                <Text fontSize="2xl" color="white" align="center">
+                  Mis datos
+                </Text>
+              </Stack>
+            </Square>
+          </Link>
         </Stack>
       </Center>
     </>

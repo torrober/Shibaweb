@@ -38,6 +38,39 @@ export default class API{
         const response = await fetch(path,options)
         return response.json();
     }
+    async changeUserData(username: any, firstName: any, lastName: any, id:any) {
+        const path = `${this.url}editUserData.php`;
+        const body = new URLSearchParams();
+        body.append("username", username)
+        body.append("firstName", firstName)
+        body.append("lastName", lastName)
+        body.append("id", id)
+        const options = {
+            headers: {
+              Accept: 'application/json'
+            },
+            body: body,
+            method: 'post'
+        };
+        const response = await fetch(path,options)
+        return response.json();
+    }
+    async changePassword(username: any, password: any, id: any) {
+        const path = `${this.url}changeUserPassword.php`;
+        const body = new URLSearchParams();
+        body.append("username", username)
+        body.append("password", password)
+        body.append("id", id)
+        const options = {
+            headers: {
+              Accept: 'application/json'
+            },
+            body: body,
+            method: 'post'
+        };
+        const response = await fetch(path,options)
+        return response.json();
+    }
     async createPet(pet: Pet) {
         const path = `${this.url}createPet.php`;
         const body = new URLSearchParams();
