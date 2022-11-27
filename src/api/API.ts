@@ -149,4 +149,21 @@ export default class API{
         const response = await fetch(path,options)
         return response.json();
     }
+    async createService(date:any, serviceType: any, ownerID:any, petID: any) {
+        const path = `${this.url}createService.php`;
+        const body = new URLSearchParams();
+        body.append("ownerID",ownerID)
+        body.append("date", date)
+        body.append("serviceType", serviceType)
+        body.append('petID', petID)
+        const options = {
+            headers: {
+              Accept: 'application/json'
+            },
+            body: body,
+            method: 'post'
+        };
+        const response = await fetch(path,options)
+        return response.json();
+    }
 }
