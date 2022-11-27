@@ -27,7 +27,8 @@ export default function Schedule() {
     api.getAllServices(userActive?.userActive?.userType).then((data) => {
       if (data.response == "failed") {
       } else {
-        setServices(data.content);
+        let servTemp = data.content.filter((serv: { done: any; }) => serv.done != '1')
+        setServices(servTemp);
       }
     });
   }, []);
