@@ -13,7 +13,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import login_bg from "../assets/img/login.jpg";
 import Header from "../content/Header";
@@ -51,22 +51,24 @@ export default function Main() {
       </Center>
       <Center>
         <Stack spacing="20px" m="6" direction="row">
-          <Square
-            size="200px"
-            borderRadius="md"
-            boxShadow="lg"
-            bgGradient={gradient1}
-            cursor="pointer"
-          >
-            <Stack w="100%" align="center">
-              <Text align="center">
-                <img src={shiba_icon}></img>
-              </Text>
-              <Text fontSize="2xl" color="white" align="center">
-                Mis mascotas
-              </Text>
-            </Stack>
-          </Square>
+          <Link to="/user/pets">
+            <Square
+              size="200px"
+              borderRadius="md"
+              boxShadow="lg"
+              bgGradient={gradient1}
+              cursor="pointer"
+            >
+              <Stack w="100%" align="center">
+                <Text align="center">
+                  <img src={shiba_icon}></img>
+                </Text>
+                <Text fontSize="2xl" color="white" align="center">
+                  Mis mascotas
+                </Text>
+              </Stack>
+            </Square>
+          </Link>
           <Spacer />
           <Square
             size="200px"

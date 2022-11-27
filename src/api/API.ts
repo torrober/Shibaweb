@@ -38,14 +38,46 @@ export default class API{
         const response = await fetch(path,options)
         return response.json();
     }
-    async createPet(user: User, pet: Pet) {
+    async createPet(pet: Pet) {
         const path = `${this.url}createPet.php`;
         const body = new URLSearchParams();
         body.append("name", pet.name)
         body.append("race", pet.race)
         body.append("age", pet.age)
         body.append("sex", pet.race)
-        body.append("ownerID",user.id)
+        body.append("ownerID",pet.ownerID)
+        const options = {
+            headers: {
+              Accept: 'application/json'
+            },
+            body: body,
+            method: 'post'
+        };
+        const response = await fetch(path,options)
+        return response.json();
+    }
+    async editPet(pet: Pet) {
+        const path = `${this.url}editPet.php`;
+        const body = new URLSearchParams();
+        body.append("name", pet.name)
+        body.append("race", pet.race)
+        body.append("age", pet.age)
+        body.append("sex", pet.race)
+        body.append("ID",pet.id)
+        const options = {
+            headers: {
+              Accept: 'application/json'
+            },
+            body: body,
+            method: 'post'
+        };
+        const response = await fetch(path,options)
+        return response.json();
+    }
+    async deletePet(id:any) {
+        const path = `${this.url}deletePet.php`;
+        const body = new URLSearchParams();
+        body.append("ID",id)
         const options = {
             headers: {
               Accept: 'application/json'
@@ -60,6 +92,20 @@ export default class API{
         const path = `${this.url}getPetsByOwner.php`;
         const body = new URLSearchParams();
         body.append("ownerID",ownerID)
+        const options = {
+            headers: {
+              Accept: 'application/json'
+            },
+            body: body,
+            method: 'post'
+        };
+        const response = await fetch(path,options)
+        return response.json();
+    }
+    async getPetByID(ID:any) {
+        const path = `${this.url}getPetByID.php`;
+        const body = new URLSearchParams();
+        body.append("ID",ID)
         const options = {
             headers: {
               Accept: 'application/json'

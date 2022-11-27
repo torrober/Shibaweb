@@ -10,6 +10,9 @@ import MainVet from "./pages/MainVet";
 import { DefaultRoute } from "./DefaultRoute";
 import MainAdmin from "./pages/MainAdmin";
 import { ProtectedAdminRoute } from "./ProtectedAdminRoute";
+import Pets from "./pages/user/Pet";
+import AddPet from "./pages/user/addPet";
+import EditPet from "./pages/user/EditPet";
 function App() {
   const userActive = useContext(UserContext);
   return (
@@ -26,6 +29,30 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Main />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/user/pets"
+              element={
+                <ProtectedRoute>
+                  <Pets />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/user/addpet"
+              element={
+                <ProtectedRoute>
+                  <AddPet />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/user/editpet/:petID"
+              element={
+                <ProtectedRoute>
+                  <EditPet />
                 </ProtectedRoute>
               }
             ></Route>
