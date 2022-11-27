@@ -19,6 +19,7 @@ import BookService from "./pages/user/BookService";
 import Patients from "./pages/vet/Patients";
 import PetRecords from "./pages/vet/PetRecords";
 import AddRecord from "./pages/vet/AddRecord";
+import Schedule from "./pages/vet/Schedule";
 function App() {
   const userActive = useContext(UserContext);
   return (
@@ -115,6 +116,14 @@ function App() {
               element={
                 <ProtectedVetRoute>
                   <AddRecord />
+                </ProtectedVetRoute>
+              }
+            ></Route>
+            <Route
+              path="/vet/schedule"
+              element={
+                <ProtectedVetRoute>
+                  <Schedule />
                 </ProtectedVetRoute>
               }
             ></Route>

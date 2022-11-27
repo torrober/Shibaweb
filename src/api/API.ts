@@ -213,4 +213,18 @@ export default class API{
         const response = await fetch(path,options)
         return response.json();
     }
+    async getAllServices(userType:any){
+        const path = `${this.url}getAllServices.php`;
+        const body = new URLSearchParams();
+        body.append("userType",userType)
+        const options = {
+            headers: {
+              Accept: 'application/json'
+            },
+            body: body,
+            method: 'post'
+        };
+        const response = await fetch(path,options)
+        return response.json();
+    }
 }

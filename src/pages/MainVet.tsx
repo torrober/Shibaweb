@@ -70,22 +70,24 @@ export default function MainVet() {
             </Square>
           </Link>
           <Spacer />
-          <Square
-            size="200px"
-            borderRadius="md"
-            boxShadow="lg"
-            bgGradient={gradient2}
-            cursor="pointer"
-          >
-            <Stack w="100%" align="center">
-              <Text align="center">
-                <img src={services_icon}></img>
-              </Text>
-              <Text fontSize="2xl" color="white" align="center">
-                Mi horario
-              </Text>
-            </Stack>
-          </Square>
+          <Link to="/vet/schedule">
+            <Square
+              size="200px"
+              borderRadius="md"
+              boxShadow="lg"
+              bgGradient={gradient2}
+              cursor="pointer"
+            >
+              <Stack w="100%" align="center">
+                <Text align="center">
+                  <img src={services_icon}></img>
+                </Text>
+                <Text fontSize="2xl" color="white" align="center">
+                  Mi horario
+                </Text>
+              </Stack>
+            </Square>
+          </Link>
           <Spacer />
           <Link to="/MyData">
             <Square
