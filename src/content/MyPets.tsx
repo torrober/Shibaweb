@@ -33,7 +33,7 @@ export default function MyPets(props: any) {
   return (
     <Box>
       {pets.map((pet, i) => (
-        <Box w="100%" p="6" m="6" key={pet.ID} borderRadius="md" boxShadow="lg">
+        <Box  p="6" m="6" key={pet.ID} borderRadius="md" boxShadow="lg">
           <Heading as="h3" size="md">
             {pet.name}
           </Heading>
@@ -55,7 +55,7 @@ export default function MyPets(props: any) {
       ))}
       {loading == false && (
         <Link to="/user/addpet">
-          <Button width="full" ml="6" colorScheme="green">
+          <Button  ml="6" colorScheme="green">
             Añadir mascota
           </Button>
         </Link>

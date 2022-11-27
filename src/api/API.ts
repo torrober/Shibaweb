@@ -95,7 +95,7 @@ export default class API{
         body.append("name", pet.name)
         body.append("race", pet.race)
         body.append("age", pet.age)
-        body.append("sex", pet.race)
+        body.append("sex", pet.sex)
         body.append("ID",pet.id)
         const options = {
             headers: {

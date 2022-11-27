@@ -1,4 +1,4 @@
-import { Box, Center, Heading } from "@chakra-ui/react";
+import { Box, Center, Heading, Stack } from "@chakra-ui/react";
 import { useContext } from "react";
 import Header from "../../content/Header";
 import MyPets from "../../content/MyPets";
@@ -19,13 +19,12 @@ export default function Pets() {
         w="100vw"
       >
         <Box>
-          <Heading color="white">
-            Mis mascotas
-          </Heading>
+          <Heading color="white">Mis mascotas</Heading>
         </Box>
       </Center>
-      
-      <MyPets ownerID={userActive?.userActive?.id}></MyPets>
+      <Stack spacing={4} p="6" m="6">
+        <MyPets ownerID={userActive?.userActive?.id}></MyPets>
+      </Stack>
     </>
   );
 }
