@@ -51,22 +51,24 @@ export default function MainVet() {
       </Center>
       <Center>
         <Stack spacing="20px" m="6" direction="row">
-          <Square
-            size="200px"
-            borderRadius="md"
-            boxShadow="lg"
-            bgGradient={gradient1}
-            cursor="pointer"
-          >
-            <Stack w="100%" align="center">
-              <Text align="center">
-                <img src={shiba_icon}></img>
-              </Text>
-              <Text fontSize="2xl" color="white" align="center">
-                Mis pacientes
-              </Text>
-            </Stack>
-          </Square>
+          <Link to="/vet/patients">
+            <Square
+              size="200px"
+              borderRadius="md"
+              boxShadow="lg"
+              bgGradient={gradient1}
+              cursor="pointer"
+            >
+              <Stack w="100%" align="center">
+                <Text align="center">
+                  <img src={shiba_icon}></img>
+                </Text>
+                <Text fontSize="2xl" color="white" align="center">
+                  Mis pacientes
+                </Text>
+              </Stack>
+            </Square>
+          </Link>
           <Spacer />
           <Square
             size="200px"

@@ -16,6 +16,9 @@ import EditPet from "./pages/user/EditPet";
 import MyData from "./pages/MyData";
 import ChangePassword from "./pages/ChangePassword";
 import BookService from "./pages/user/BookService";
+import Patients from "./pages/vet/Patients";
+import PetRecords from "./pages/vet/PetRecords";
+import AddRecord from "./pages/vet/AddRecord";
 function App() {
   const userActive = useContext(UserContext);
   return (
@@ -88,6 +91,30 @@ function App() {
               element={
                 <ProtectedVetRoute>
                   <MainVet />
+                </ProtectedVetRoute>
+              }
+            ></Route>
+            <Route
+              path="/vet/patients"
+              element={
+                <ProtectedVetRoute>
+                  <Patients />
+                </ProtectedVetRoute>
+              }
+            ></Route>
+            <Route
+              path="/vet/record/:petID"
+              element={
+                <ProtectedVetRoute>
+                  <PetRecords />
+                </ProtectedVetRoute>
+              }
+            ></Route>
+            <Route
+              path="/vet/addRecord/:petID"
+              element={
+                <ProtectedVetRoute>
+                  <AddRecord />
                 </ProtectedVetRoute>
               }
             ></Route>
