@@ -227,4 +227,20 @@ export default class API{
         const response = await fetch(path,options)
         return response.json();
     }
+    async updateService(id: any, done:any,paid:any) {
+        const path = `${this.url}updateService.php`;
+        const body = new URLSearchParams();
+        body.append("id",id)
+        body.append("done", done)
+        body.append("paid",paid)
+        const options = {
+            headers: {
+              Accept: 'application/json'
+            },
+            body: body,
+            method: 'post'
+        };
+        const response = await fetch(path,options)
+        return response.json();        
+    }
 }

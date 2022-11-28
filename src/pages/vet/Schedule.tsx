@@ -27,14 +27,24 @@ export default function Schedule() {
     api.getAllServices(userActive?.userActive?.userType).then((data) => {
       if (data.response == "failed") {
       } else {
-        let servTemp = data.content.filter((serv: { done: any; }) => serv.done != '1')
+        let servTemp = data.content.filter(
+          (serv: { done: any }) => serv.done != "1"
+        );
         setServices(servTemp);
+        //setServices(data.content)
       }
     });
   }, []);
-  const handleService = () => {
+  const handleService = (id: any, done: any, paid: any,i:any) => {
     const api = new API();
-    //api.
+    api.updateService(id, done, paid).then((data) => {
+      if (data.response == "failed") {
+      } else {
+        alert("Marcado como terminado.");
+        let temp = services.splice(0, i).concat(services.slice(i + 1));
+        setServices(temp)
+      }
+    });
   };
   return (
     <>
@@ -51,7 +61,7 @@ export default function Schedule() {
         </Box>
       </Center>
       <Accordion>
-        {services.map((data) => (
+        {services.map((data,i) => (
           <AccordionItem>
             <h2>
               <AccordionButton>
@@ -66,7 +76,10 @@ export default function Schedule() {
                 <Heading>{"Paciente #" + data.petID} - Ver más</Heading>
               </Link>
               <br></br>
-              <Button onClick={(e) => handleService()} colorScheme="red">
+              <Button
+                onClick={(e) => handleService(data.ID, 1, 0,i)}
+                colorScheme="red"
+              >
                 Marcar servicio como terminado
               </Button>
             </AccordionPanel>
