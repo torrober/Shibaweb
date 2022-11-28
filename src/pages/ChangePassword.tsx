@@ -63,6 +63,7 @@ export default function ChangePassword() {
             placeholder="Cedula"
             onChange={(e) => setID(e.target.value)}
             value={ID}
+            type="number"
           />
         </FormControl>
         <FormControl isRequired>
