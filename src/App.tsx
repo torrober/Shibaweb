@@ -20,6 +20,9 @@ import Patients from "./pages/vet/Patients";
 import PetRecords from "./pages/vet/PetRecords";
 import AddRecord from "./pages/vet/AddRecord";
 import Schedule from "./pages/vet/Schedule";
+import BookServiceAdmin from "./pages/admin/BookServiceAdmin";
+import Cashier from "./pages/admin/Cashier";
+import EnterId from "./pages/admin/EnterId";
 function App() {
   const userActive = useContext(UserContext);
   return (
@@ -132,6 +135,30 @@ function App() {
               element={
                 <ProtectedAdminRoute>
                   <MainAdmin />
+                </ProtectedAdminRoute>
+              }
+            ></Route>
+            <Route
+              path="/admin/enterId"
+              element={
+                <ProtectedAdminRoute>
+                  <EnterId />
+                </ProtectedAdminRoute>
+              }
+            ></Route>
+            <Route
+              path="/admin/cashier/:id"
+              element={
+                <ProtectedAdminRoute>
+                  <Cashier />
+                </ProtectedAdminRoute>
+              }
+            ></Route>
+            <Route
+              path="/admin/bookservices"
+              element={
+                <ProtectedAdminRoute>
+                  <BookServiceAdmin />
                 </ProtectedAdminRoute>
               }
             ></Route>

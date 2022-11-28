@@ -31,7 +31,6 @@ export default function Schedule() {
           (serv: { done: any }) => serv.done != "1"
         );
         setServices(servTemp);
-        //setServices(data.content)
       }
     });
   }, []);

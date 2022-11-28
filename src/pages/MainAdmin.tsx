@@ -51,6 +51,7 @@ export default function MainAdmin() {
       </Center>
       <Center>
         <Stack spacing="20px" m="6" direction="row">
+        <Link to="/admin/enterId">
           <Square
             size="200px"
             borderRadius="md"
@@ -67,7 +68,9 @@ export default function MainAdmin() {
               </Text>
             </Stack>
           </Square>
+          </Link>
           <Spacer />
+          <Link to="/admin/bookservices">
           <Square
             size="200px"
             borderRadius="md"
@@ -84,6 +87,7 @@ export default function MainAdmin() {
               </Text>
             </Stack>
           </Square>
+          </Link>
           <Spacer />
           <Link to="/MyData">
             <Square
